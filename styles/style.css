@@ -1,5 +1,15 @@
 /* This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp> */
 
+
+/* Style the header */
+.header {
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-image: url("groceries.jpg");
+    background-color: #f1f1f1;
+  }
+
 /* Style the tab */
 .tab {
     overflow: hidden;
@@ -34,4 +44,22 @@
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+    background-color: #f1f1f1;
+  }
+  
+  .tab button:hover {
+    background-color: rgb(236, 12, 12);
+  }
+
+ /*styling du footer pris de stackoverflow*/
+  .footer{
+    overflow: hidden;
+    text-align: right;
+    border: 1px solid #ccc;
+    background-color: #c94545;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    color:blanchedalmond;
+    position: fixed;
   }
