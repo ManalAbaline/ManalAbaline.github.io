@@ -1,148 +1,226 @@
-
+	
 // Array of products, each product is an object with different fieldset
 // A set of ingredients should be added to products		 
 
 var products = [
 	{
-		name: "brocoli ",
+		name: "Broccoli",
 		vegetarian: true,
 		glutenFree: true,
-        organic: true,
-		price: 1.99
+		price: 1.99,
+		organic: true,
+		classification: "Vegetable"
 	},
 	{
-		name: "bread ",
+		name: "Carrot",
+		vegetarian: true,
+		glutenFree: true,
+		price: 0.35,
+		organic: true,
+		classification: "Vegetable"
+	},
+	{
+		name: "Bread",
 		vegetarian: true,
 		glutenFree: false,
-        organic: false,
-		price: 2.35
+		price: 2.35,
+		organic: false,
+		classification: "Bread"
 	},
 	{
-		name: "salmon ",
+		name: "Salmon",
 		vegetarian: false,
 		glutenFree: true,
-        organic: false,
-		price: 10.00
+		price: 10.00,
+		organic: false,
+		classification: "Protein"
 	},
-    {
-		name: "milk ",
+	{
+		name: "Chocolate",
 		vegetarian: true,
 		glutenFree: true,
-        organic: true,
-		price: 5
+		price: 2.45,
+		organic: true,
+		classification: "Desert"
 	},
-    {
-		name: "yogurt ",
-		vegetarian: true,
-		glutenFree: true,
-        organic: false,
-		price: 2.99
-	},
-    {
-		name: "ground beef 1kg ",
+	{
+		name: "Beef Steak",
 		vegetarian: false,
-		glutenFree: true,
-        organic: false,
-		price: 14
+		glutenFree: false,
+		price: 17.00,
+		organic: true,
+		classification: "Protein"
 	},
-    {
-		name: "Eggs (12) ",
+	{
+		name: "Coconut",
 		vegetarian: true,
 		glutenFree: true,
-        organic: true,
-		price: 2.99
+		price: 8.55,
+		organic: false,
+		classification: "Nut"
 	},
-    {
-		name: "Mashrooms ",
-		vegetarian: true,
-		glutenFree: true,
-        organic: true,
-		price: 2.25
-	},
-    {
-		name: "peanut butter 300g ",
-		vegetarian: true,
-		glutenFree: true,
-        organic: false,
-		price: 4.25
-	},
-    {
-		name: "wheat flour 2kg",
+	{
+		name: "Pad-thai",
 		vegetarian: true,
 		glutenFree: false,
-        organic: false,
-		price: 4.29
+		price: 18.45,
+		organic: false,
+		classification: "Meal"
 	},
 	{
-		name: "milk 1%",
+		name: "Pretzel",
 		vegetarian: true,
-		glutenFree: true,
-        organic: false,
-		price: 5.99
+		glutenFree: false,
+		price: 3.99,
+		organic: false,
+		classification: "Bread"
 	},
 	{
-		name: "Orange - 4 lb",
+		name: "Tofu",
 		vegetarian: true,
-		glutenFree: true,
-        organic: false,
-		price: 6
+		glutenFree: false,
+		price: 5.99,
+		organic: true,
+		classification: "Protein"
 	},
 	{
-		name: "tomatoes - 5 lb",
+		name: "Hazelnuts",
 		vegetarian: true,
 		glutenFree: true,
-        organic: false,
-		price: 5
+		price: 5.99,
+		organic: true,
+		classification: "Nut"
 	},
 	{
-		name: "Bananas - 4 lb",
+		name: "Chicken",
+		vegetarian: false,
+		glutenFree: false,
+		price: 5.99,
+		organic: false,
+		classification: "Protein"
+	},
+	{
+		name: "Shrimp",
+		vegetarian: false,
+		glutenFree: true,
+		price: 5.99,
+		organic: true,
+		classification: "Protein"
+	},
+	{
+		name: "Milk-2",
 		vegetarian: true,
 		glutenFree: true,
-        organic: false,
-		price: 3
+		price: 1.99,
+		organic: true,
+		classification: "Dairy"
+	},
+	{
+		name: "Milk-1",
+		vegetarian: true,
+		glutenFree: true,
+		price: 0.99,
+		organic: false,
+		classification: "Dairy"
 	}
+
 ];
 	
-function restrictListProducts(prods,vegDiet, glutDiet, orgDiet) {
+
+
+// given restrictions provided, make a reduced list of products
+// prices should be included in this list, as well as a sort based on price
+
+function restrictListProducts(prods, vege, glut, org) {
+	
 	let product_names = [];
-    // to sort by price
-    prods.sort(function(a,b){return a.price-b.price});
 
-    for (let i=0; i<prods.length; i+=1) {
+	prods.sort(function(a,b){return a.price-b.price});
 
-		if ( (prods[i].vegetarian == true)&& (vegDiet == "Vegetarian")){
-			if ((glutDiet == "GlutenFree") && (prods[i].glutenFree == true)){
-				if ((prods[i].organic == true) && (orgDiet == "Organic")){
-					product_names.push("$"+prods[i].price+" - "+prods[i].name);
+	for (let i=0; i<prods.length; i+=1) {
+		
+		if ((vege == "Vegetarian") && (prods[i].vegetarian == true)){
+			if ((glut == "GlutenFree") && (prods[i].glutenFree == true)){
+				if ((org == "Organic") && (prods[i].organic == true)){
+					product_names.push(prods[i].classification);
+					product_names.push(prods[i].price.toFixed(2));
+					product_names.push(prods[i].name);
 				}
-				else if ((orgDiet == "None") && (prods[i].organic == false)){
-					product_names.push("$"+prods[i].price+" - "+prods[i].name);
+				else if ((org == "None") && (prods[i].organic == false)){
+					product_names.push(prods[i].classification);
+					product_names.push(prods[i].price.toFixed(2));
+					product_names.push(prods[i].name);
+				}
+				else if ((org == "All")){
+					product_names.push(prods[i].classification);
+					product_names.push(prods[i].price.toFixed(2));
+					product_names.push(prods[i].name);
+				}
+
+			}
+
+			else if ((glut == "None")){
+
+				if ((org == "Organic") && (prods[i].organic == true)){
+					product_names.push(prods[i].classification);
+					product_names.push(prods[i].price.toFixed(2));
+					product_names.push(prods[i].name);
+				}
+
+				else if ((org == "None") && (prods[i].organic == false)){
+					product_names.push(prods[i].classification);
+					product_names.push(prods[i].price.toFixed(2));
+					product_names.push(prods[i].name);
+				}
+
+				else if ((org == "All")){
+					product_names.push(prods[i].classification);
+					product_names.push(prods[i].price.toFixed(2));
+					product_names.push(prods[i].name);
 				}
 			}
-			else if ((glutDiet == "None")){
-				if ( (prods[i].organic == true)&& (orgDiet == "Organic")){
-					product_names.push("$"+prods[i].price+" - "+prods[i].name);
-				}
-				else if ((prods[i].organic == false && (orgDiet == "None"))){
-					product_names.push("$"+prods[i].price+" - "+prods[i].name);
-				}
-			}
+
 		}
-		else if ((vegDiet == "None")){
-			if ( (prods[i].glutenFree == true)&& (glutDiet == "GlutenFree")){
-				if ( (prods[i].organic == true)&& (orgDiet == "Organic")){
-					product_names.push("$"+prods[i].price+" - "+prods[i].name);
+		else if ((vege == "None")){
+
+			if ((glut == "GlutenFree") && (prods[i].glutenFree == true)){
+				if ((org == "Organic") && (prods[i].organic == true)){
+					product_names.push(prods[i].classification);
+					product_names.push(prods[i].price.toFixed(2));
+					product_names.push(prods[i].name);
 				}
-				else if ((orgDiet == "None") && (prods[i].organic == false)){
-					product_names.push("$"+prods[i].price+" - "+prods[i].name);
+
+				else if ((org == "None") && (prods[i].organic == false)){
+					product_names.push(prods[i].classification);
+					product_names.push(prods[i].price.toFixed(2));
+					product_names.push(prods[i].name);
 				}
+
+				else if ((org == "All")){
+					product_names.push(prods[i].classification);
+					product_names.push(prods[i].price.toFixed(2));
+					product_names.push(prods[i].name);
+				}
+
 			}
-			else if ((glutDiet == "None")){
-				if ( (prods[i].organic == true)&& (orgDiet == "Organic")){
-					product_names.push("$"+prods[i].price+" - "+prods[i].name);
+			else if ((glut == "None")){
+
+				if ((org == "Organic") && (prods[i].organic == true)){
+					product_names.push(prods[i].classification);
+					product_names.push(prods[i].price.toFixed(2));
+					product_names.push(prods[i].name);
 				}
-				else if ((prods[i].organic == false) && (orgDiet == "None")){
-					product_names.push("$"+prods[i].price+" - "+prods[i].name);
+
+				else if ((org == "None") && (prods[i].organic == false)){
+					product_names.push(prods[i].classification);
+					product_names.push(prods[i].price.toFixed(2));
+					product_names.push(prods[i].name);
+				}
+
+				else if ((org == "All")){
+					product_names.push(prods[i].classification);
+					product_names.push(prods[i].price.toFixed(2));
+					product_names.push(prods[i].name);
 				}
 			}
 
@@ -151,14 +229,11 @@ function restrictListProducts(prods,vegDiet, glutDiet, orgDiet) {
 	return product_names;
 }
 
-// Calculate the total price of items, with received parameter being a list of products
 function getTotalPrice(chosenProducts) {
-
 	totalPrice = 0;
-
 	for (let i=0; i<products.length; i+=1) {
 
-		if (chosenProducts.indexOf("$"+products[i].price+" - "+products[i].name) > -1){	
+		if (chosenProducts.indexOf(products[i].name) > -1){
 			totalPrice += products[i].price;
 		}
 	}

@@ -1,83 +1,154 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <! This style sheet is taken from https://www.w3schools.com/howto/howto_js_tabs.asp>
-        <link href="styles/style.css" rel="stylesheet" type="text/css">
+
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+	
+	<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+	<title>Sun's online store</title>
 </head>
 
 <body>
 
-    <div class="header">
-        <h1>Sun's online store</h1>
-        <h4>For a unique and personalized shopping experience!</h4>
-    </div>
 
-    <!-- Tab links, each one with an onclick event associated with it -->
-    <div class="tab">
-        <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
-        <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
-        <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
-    </div>
+<div class="header">
+		<p class="name">The</p>
+		<h1>Sun's online store</h1>
+		
+		<div class="header-bar">
+			<p class="click">Pour une expérience de courses unique et personnalisée!</p>
+		</div>
 
-    <!-- Tab content -->
-    <div id="Client" class="tabcontent">
-        <h3>Client Information</h3>
-        <p>Tell us a bit about you.</p>
-        Choose a Category:
-        <br>
-        <br>
-        <select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'dietSelect2','dietSelect3','displayProduct')">
-            <option value=""></option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="None">None</option>
-        </select>
+	</div>
 
-        <br>
-        <br>
+<br>
 
-        <select id="dietSelect2" name="dietSelect" onchange="populateListProductChoices('dietSelect', this.id,'dietSelect3','displayProduct')">
-            <option value=""></option>
-            <option value="GlutenFree">GlutenFree</option>
-            <option value="None">None</option>
-        </select>
 
-        <br>
-        <br>
 
-        <select id="dietSelect3" name="dietSelect" onchange="populateListProductChoices('dietSelect', 'dietSelect2',this.id,'displayProduct')">
-            <option value=""></option>
-            <option value="Organic">Organic</option>
-            <option value="None">None</option>
-        </select>
+<div id="Client">
+	
+	<div class="navbar">
+	  <a class="active"><b>Etape 1 </b> Filtrer ></a>
+	  <a><b>Etape 2: </b>Choisir les aliments</a>
+	  <a><b>Etape 3: </b>Voir le panier</a>
+	</div>
 
-        <br>
-        <br>
-    </div>
+	<div class="filters">
+	  <h3>Dites nous un peu sur votre régime</h3>
+	  <p>Pour une expérience personnalisée, SVP choisissez vos restrictions alimentaires</p>
 
-    <div id="Products" class="tabcontent">
-        <h3>Your targeted products</h3>
-        <p>We preselected products based on your restrictions.</p>
-        Choose items to buy:
-        <div id="displayProduct"></div>
-        <button id="addCart" type="button" class="block" onclick="selectedItems()">
-            Add selected items to cart.
-        </button>
-    </div>
+		<select id="dietSelect" name="dietSelect">
+			<option value=""></option>
+			<option value="Vegetarian">Vegetarian</option>
+	    	<option value="None">None</option>
+		</select>
 
-    <div id="Cart" class="tabcontent">
-        <h3>Cart</h3>
-        <p>Here is your cart.</p>
-        <div id="displayCart"></div>
-    </div>
+		<select id="dietSelect2" name="dietSelect">
+			<option value=""></option>
+	    	<option value="GlutenFree">Gluten Free</option>
+	    	<option value="None">None</option>
+		</select>
 
-    <script src="scripts/groceries.js"></script>
-    <script src="scripts/main.js"></script>
+		<select id="dietSelect3" name="dietSelect">
+			<option value=""></option>
+			<option value="Organic">Organic</option>
+	    	<option value="None">Non-Organic</option>
+	    	<option value="All">All</option>
+		</select>
 
-</body>
+		<br>
+		<br>
 
-<div class="footer">
-	<p>Website designed by Manal   </p>
+		<button class="ok" onclick="populateListProductChoices('dietSelect', 'dietSelect2','dietSelect3','pV','pB','pP','pD','pN','pM','pDa')">Click to Proceed ></button>
+
+		<br>
+
+	</div>
 </div>
 
+
+<!------------------------------SELECTING GROCERIES---------------------------------->
+
+<div id="Products">
+
+	<div class="navbar">
+	  <a class="first" onClick="window.location.reload();"><b>Step 1: </b>Filter Results</a>
+	  <a class="active"><b>Step 2: </b>Select Groceries ></a>
+	  <a><b>Step 3: </b>View Shopping Cart</a>
+	</div>
+
+	<div class="groceries">
+		<div class="panel">
+			<div id="pV"></div>
+		</div>
+
+		<button class="displayManage">Pains</button>
+		<div class="panel">
+			<div id="pB"></div>
+		</div>
+
+		<button class="displayManage">Protéines</button>
+		<div class="panel">
+			<div id="pP"></div>
+		</div>
+
+		<button class="displayManage">Desserts</button>
+		<div class="panel">
+			<div id="pD"></div>
+		</div>
+
+		<button class="displayManage">Noix</button>
+		<div class="panel">
+			<div id="pN"></div>
+		</div>
+
+		<button class="displayManage">Menus complets</button>
+		<div class="panel">
+			<div id="pM"></div>
+		</div>
+
+		<button class="displayManage"> Produit laitiers</button>
+		<div class="panel">
+			<div id="pDa"></div>
+		</div>
+	</div>
+	<div class="tabcontent">
+		<button class="ok" onclick="selectedItems()"> cliquer pour continuer ></button>
+	</div>
+
+	<br>
+</div>
+
+
+
+<div id="Cart">
+	<div class="navbar">
+	  <a class="first" onClick="window.location.reload();"><b>Etape 1: </b>Filtrer</a>
+	  <a><b>Etape2: </b>Choisir vos courses:</a>
+	  <a class="active"><b>Etape 3 : </b>Voir le panier d'achats ></a>
+	</div>
+
+	<div class="tabcontent">
+	  <h3>Votre Panier d'achats</h3>
+	  <div id="displayCart"></div>
+	</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<script src="scripts/main.js" type="text/javascript"></script>
+<script src="scripts/displayManage.js" type="text/javascript"></script>
+<script src="scripts/groceries.js" type="text/javascript"></script>
+
+<div class="footer">
+	<p>Manal Abaline - 300038881</p>
+</div>
+
+
+</body>
 </html>
