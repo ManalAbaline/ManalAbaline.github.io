@@ -220,4 +220,3 @@ function selectedItems(){
 	c.appendChild(total);
 		
 }
-

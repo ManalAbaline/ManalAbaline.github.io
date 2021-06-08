@@ -36,39 +36,39 @@ var products = [
 		classification: "Protein"
 	},
 	{
-		name: "Chocolate",
+		name: "butter tart",
 		vegetarian: true,
 		glutenFree: true,
-		price: 2.45,
+		price: 5,
 		organic: true,
 		classification: "Desert"
 	},
 	{
-		name: "Beef Steak",
+		name: "ground beef",
 		vegetarian: false,
 		glutenFree: false,
-		price: 17.00,
-		organic: true,
+		price: 15.00,
+		organic: false,
 		classification: "Protein"
 	},
 	{
-		name: "Coconut",
+		name: "brazil nuts",
 		vegetarian: true,
 		glutenFree: true,
-		price: 8.55,
+		price: 11.99,
 		organic: false,
 		classification: "Nut"
 	},
 	{
-		name: "Pad-thai",
+		name: "salad",
 		vegetarian: true,
-		glutenFree: false,
-		price: 18.45,
-		organic: false,
+		glutenFree: true,
+		price: 20,
+		organic: true,
 		classification: "Meal"
 	},
 	{
-		name: "Pretzel",
+		name: "traditional bread",
 		vegetarian: true,
 		glutenFree: false,
 		price: 3.99,
@@ -76,34 +76,51 @@ var products = [
 		classification: "Bread"
 	},
 	{
-		name: "Tofu",
+		name: "eggs",
 		vegetarian: true,
-		glutenFree: false,
-		price: 5.99,
+		glutenFree: true,
+		price: 3.99,
 		organic: true,
 		classification: "Protein"
 	},
 	{
-		name: "Hazelnuts",
+		name: "tuna",
+		vegetarian: false,
+		glutenFree: true,
+		price: 2.25,
+		organic: false,
+		classification: "Protein"
+	},
+
+	{
+		name: "almonds",
 		vegetarian: true,
 		glutenFree: true,
-		price: 5.99,
+		price: 9,
 		organic: true,
 		classification: "Nut"
 	},
 	{
-		name: "Chicken",
+		name: "chicken wings",
 		vegetarian: false,
 		glutenFree: false,
-		price: 5.99,
+		price: 16,
 		organic: false,
 		classification: "Protein"
 	},
 	{
-		name: "Shrimp",
+		name: "strawberry cheesecake",
 		vegetarian: false,
 		glutenFree: true,
-		price: 5.99,
+		price: 25,
+		organic: false,
+		classification: "Desert"
+	},
+	{
+		name: "shrimp",
+		vegetarian: false,
+		glutenFree: true,
+		price: 19,
 		organic: true,
 		classification: "Protein"
 	},
@@ -116,14 +133,13 @@ var products = [
 		classification: "Dairy"
 	},
 	{
-		name: "Milk-1",
+		name: "creamcheese",
 		vegetarian: true,
 		glutenFree: true,
-		price: 0.99,
+		price: 2.99,
 		organic: false,
 		classification: "Dairy"
 	}
-
 ];
 	
 

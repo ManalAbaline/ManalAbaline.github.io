@@ -126,7 +126,7 @@ p.click{
 
 button.ok{
   align-self: left;
-  background-color: cornflowerblue;
+  background-color: rgb(223, 86, 76);
   border: 2px darkgrey solid;
   width: 125px;
   height: 40px;
@@ -144,7 +144,7 @@ button.ok:hover{
 
 p.total{
   size: large;
-  background-color: cornflowerblue;
+  background-color: rgb(202, 79, 57);
   width: 50%;
   height: 30px;
   color: white;
